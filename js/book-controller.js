@@ -103,7 +103,9 @@ function onReadBook(bookId) {
   elModal.querySelector('.book-title').innerText = book.title;
   elModal.querySelector(
     '.book-cover'
-  ).innerHTML = `<img src="img/${book.title}.jpg" alt="${book.title}">`;
+  ).innerHTML = `<img src="img/${book.title.toLowerCase()}.jpg" alt="${
+    book.title
+  }">`;
   elModal.querySelector('p').innerText = book.description;
   elModal.querySelector(
     '.rate-panel'
@@ -128,7 +130,6 @@ function onChangeRating(bookId, diff) {
 function onSetLang(lang) {
   setLang(lang);
   if (lang === 'he') document.body.classList.add('rtl');
-  // TODO: add classs rtl
   else document.body.classList.remove('rtl');
   renderBooks();
   doTrans();
