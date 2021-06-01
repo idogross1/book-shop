@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Book Shop</title>
+  </head>
+  <body onload="onInit()">
+    <div class="title-box">
+      <h1 data-trans="title">Books!</h1>
+    </div>
+    <select class="btn btn-change-lng" onchange="onSetLang(this.value)">
+      <option value="en">English</option>
+      <option value="he">עברית</option>
+    </select>
+    <button class="btn open-add-book-form" onclick="onAddBookOpenForm()">
+      +
+    </button>
+    <form
+      class="book-form hide"
+      onsubmit="onAddingBook(event)"
+      name="add-book-form"
+    >
+      <input
+        data-trans="book-title"
+        class="book-title"
+        type="text"
+        placeholder="Title"
+      />
+      <input
+        data-trans="book-price"
+        class="book-price"
+        type="number"
+        placeholder="Price"
+      />
+      <button data-trans="add-book" class="btn" type="submit">Add Book</button>
+    </form>
+    <div class="add-book-form"></div>
+    <section class="books-container"></section>
+    <section class="modal hide">
+      <div class="modal-head">
+        <h2 class="book-title"></h2>
+        <button class="btn" onclick="onCloseModal()">X</button>
+      </div>
+      <div class="book-cover"></div>
+      <p></p>
+      <div class="rate-panel"></div>
+    </section>
+    <div class="navigate-pages">
+      <button class="btn prev-page" onclick="onPrevPage()"><</button>
+      <button class="btn next-page" onclick="onNextPage()">></button>
+    </div>
+    <div class="overlay hide"></div>
+
+    <script src="js/util-service.js"></script>
+    <script src="js/book-controller.js"></script>
+    <script src="js/book-service.js"></script>
+    <script src="js/i18n.js"></script>
+  </body>
+</html>
