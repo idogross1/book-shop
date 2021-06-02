@@ -105,7 +105,7 @@ function onReadBook(bookId) {
     '.book-cover'
   ).innerHTML = `<img src="img/${book.title.toLowerCase()}.jpg" alt="${
     book.title
-  }">`;
+  }" onerror="onImageDontExist('${book.id}')">`;
   elModal.querySelector('p').innerText = book.description;
   elModal.querySelector(
     '.rate-panel'
@@ -114,6 +114,15 @@ function onReadBook(bookId) {
   <button class="btn" onclick="onChangeRating('${book.id}', 1)">+</button>`;
 
   elModal.classList.toggle('hide');
+}
+
+function onImageDontExist(bookId) {
+  console.log('test');
+  var elModal = document.querySelector('.modal');
+  var book = getBookById(bookId);
+  elModal.querySelector(
+    '.book-cover'
+  ).innerHTML = `<img src="img/default.jpg" alt="${book.title}">`;
 }
 
 function onCloseModal() {
